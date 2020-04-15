@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "wolveswitharmor",
+  "version": "${version}",
+  "name": "Wolves With Armor",
+  "description": "Wolves With Armor adds special armor items for wolves (and a few extra utilities) that keep them nice and safe.",
+  "authors": [
+    "Draylar"
+  ],
+  "license": "MIT",
+  "icon": "assets/wolveswitharmor/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "draylar.wolveswitharmor.WolvesWithArmor"
+    ],
+    "client": [
+      "draylar.wolveswitharmor.WolvesWithArmorClient"
+    ]
+  },
+  "mixins": [
+    "wolves-with-armor.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.8.2+build.194",
+    "fabric": "*",
+    "minecraft": "1.15.2"
+  }
+}

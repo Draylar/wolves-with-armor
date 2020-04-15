@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "  #",
+    "iLi",
+    "L L"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:bone"
+    },
+    "i": {
+      "item": "minecraft:iron_ingot"
+    },
+    "L": {
+      "item": "minecraft:leather"
+    }
+  },
+  "result": {
+    "item": "wolveswitharmor:leather_wolf_armor",
+    "count": 1
+  }
+}

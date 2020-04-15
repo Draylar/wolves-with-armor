@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "wolveswitharmor:item/golden_wolf_armor"
+  }
+}

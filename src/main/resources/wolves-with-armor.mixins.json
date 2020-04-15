@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "package": "draylar.wolveswitharmor.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "LivingEntityMixin"
+  ],
+  "client": [
+    "WolfEntityRendererMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
