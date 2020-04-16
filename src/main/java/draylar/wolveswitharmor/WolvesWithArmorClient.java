@@ -2,11 +2,15 @@ package draylar.wolveswitharmor;
 
 import draylar.wolveswitharmor.client.screen.WolfScreen;
 import draylar.wolveswitharmor.container.WolfContainer;
+import draylar.wolveswitharmor.registry.Items;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
+import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.client.screen.ScreenProviderRegistry;
+import net.minecraft.client.color.item.ItemColorProvider;
 import net.minecraft.entity.passive.WolfEntity;
+import net.minecraft.item.DyeableItem;
 
 @Environment(EnvType.CLIENT)
 public class WolvesWithArmorClient implements ClientModInitializer {
@@ -23,5 +27,8 @@ public class WolvesWithArmorClient implements ClientModInitializer {
                     );
                 }
         );
+
+        ColorProviderRegistry.ITEM.register((stack, tintIndex) ->
+                tintIndex > 0 ? -1 : ((DyeableItem) stack.getItem()).getColor(stack), Items.LEATHER_WOLF_ARMOR);
     }
 }
