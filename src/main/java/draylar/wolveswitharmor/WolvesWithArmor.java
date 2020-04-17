@@ -34,7 +34,7 @@ public class WolvesWithArmor implements ModInitializer {
         });
 
         UseEntityCallback.EVENT.register((playerEntity, world, hand, entity, entityHitResult) -> {
-            if (entity instanceof WolfEntity) {
+            if (entity instanceof WolfEntity && playerEntity.isSneaking()) {
                 WolfEntity wolfEntity = (WolfEntity) entity;
 
                 if(wolfEntity.getOwnerUuid() != null) {
