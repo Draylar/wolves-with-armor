@@ -35,7 +35,7 @@ public abstract class LivingEntityMixin extends Entity {
     private void getArmor(CallbackInfoReturnable<Integer> cir) {
         if((Object) this instanceof WolfEntity) {
             WolfEntity wolfEntity = (WolfEntity) (Object) this;
-            ItemStack stack = WolvesWithArmor.WOLF_ARMOR.get(wolfEntity).getArmor().getInvStack(0);
+            ItemStack stack = WolvesWithArmor.WOLF_ARMOR.get(wolfEntity).getArmor();
 
             this.getAttributeInstance(EntityAttributes.ARMOR).removeModifier(WOLF_ARMOR_BONUS_UUID);
 

@@ -27,7 +27,7 @@ public class WolfArmorFeatureRenderer extends FeatureRenderer<WolfEntity, WolfEn
 
     @Override
     public void render(MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i, WolfEntity wolfEntity, float f, float g, float h, float j, float k, float l) {
-        ItemStack itemStack = WolvesWithArmor.WOLF_ARMOR.get(wolfEntity).getArmor().getInvStack(0);
+        ItemStack itemStack = WolvesWithArmor.WOLF_ARMOR.get(wolfEntity).getArmor();
 
         if (itemStack.getItem() instanceof WolfArmorItem) {
             WolfArmorItem WolfArmorItem = (WolfArmorItem) itemStack.getItem();

@@ -11,26 +11,31 @@ import net.minecraft.nbt.CompoundTag;
 
 public class WolfArmorComponent implements EntitySyncedComponent {
 
-    private final BasicInventory armor = new BasicInventory(1);
+    private ItemStack armor = ItemStack.EMPTY;
     private final WolfEntity wolfEntity;
 
     public WolfArmorComponent(WolfEntity wolfEntity) {
         this.wolfEntity = wolfEntity;
     }
 
-    public BasicInventory getArmor() {
+    public void setArmor(ItemStack armor) {
+        this.armor = armor.copy();
+        sync();
+    }
+
+    public ItemStack getArmor() {
         return armor;
     }
 
     @Override
     public void fromTag(CompoundTag tag) {
-        armor.setInvStack(0, ItemStack.fromTag(tag.getCompound("ArmorInventory")));
+        armor = ItemStack.fromTag(tag.getCompound("ArmorInventory"));
     }
 
     @Override
     public CompoundTag toTag(CompoundTag tag) {
         CompoundTag armorInventoryTag = new CompoundTag();
-        armor.getInvStack(0).toTag(armorInventoryTag);
+        armor.toTag(armorInventoryTag);
         tag.put("ArmorInventory", armorInventoryTag);
         return tag;
     }
