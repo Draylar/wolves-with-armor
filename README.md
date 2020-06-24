@@ -8,7 +8,7 @@ Wolves With Armor is a mod for Fabric 1.15.2 that adds several new wolf related 
 Wolf Armor gives the same protection as Horse Armor.
 The recipes for Wolf Armor can be found below:
 
-![](https://i.imgur.com/lEWJElo.png)
+![](resources/recipes.png)
 
 ### License
 *Wolves With Armor* is licensed under MIT. You are free to use the files in this project as you need to.
