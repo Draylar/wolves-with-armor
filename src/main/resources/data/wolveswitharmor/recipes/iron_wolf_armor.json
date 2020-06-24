@@ -1,13 +1,11 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "  #",
-    "iii",
-    "i i"
+    "i#i"
   ],
   "key": {
     "#": {
-      "item": "minecraft:bone"
+      "item": "minecraft:leather"
     },
     "i": {
       "item": "minecraft:iron_ingot"

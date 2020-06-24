@@ -7,6 +7,9 @@
   "authors": [
     "Draylar"
   ],
+  "contributors": [
+    "MORTADA KILLER 0"
+  ],
   "license": "MIT",
   "icon": "assets/wolveswitharmor/icon.png",
   "environment": "*",
@@ -24,6 +27,6 @@
   "depends": {
     "fabricloader": ">=0.8.2+build.194",
     "fabric": "*",
-    "minecraft": "1.15.2"
+    "minecraft": ">=1.16"
   }
 }

@@ -1,15 +1,13 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "  #",
-    "iii",
-    "i i"
+    "dgd"
   ],
   "key": {
-    "#": {
-      "item": "minecraft:bone"
+    "d": {
+      "item": "minecraft:gold_ingot"
     },
-    "i": {
+    "g": {
       "item": "minecraft:diamond"
     }
   },

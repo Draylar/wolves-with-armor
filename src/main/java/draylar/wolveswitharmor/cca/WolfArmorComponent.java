@@ -5,7 +5,6 @@ import nerdhub.cardinal.components.api.ComponentType;
 import nerdhub.cardinal.components.api.util.sync.EntitySyncedComponent;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.passive.WolfEntity;
-import net.minecraft.inventory.BasicInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundTag;
 
