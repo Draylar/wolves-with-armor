@@ -12,6 +12,7 @@ public class Items {
     public static final Item IRON_WOLF_ARMOR = register("iron_wolf_armor", new WolfArmorItem(5, "iron"));
     public static final Item GOLDEN_WOLF_ARMOR = register("golden_wolf_armor", new WolfArmorItem(7, "gold"));
     public static final Item DIAMOND_WOLF_ARMOR = register("diamond_wolf_armor", new WolfArmorItem(11, "diamond"));
+    public static final Item NETHERITE_WOLF_ARMOR = register("netherite_wolf_armor", new WolfArmorItem(15, "netherite", true));
 
     private static Item register(String name, Item item) {
         return Registry.register(Registry.ITEM, WolvesWithArmor.id(name), item);

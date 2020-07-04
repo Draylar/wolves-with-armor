@@ -26,6 +26,12 @@ public class WolfArmorItem extends Item {
         this.entityTexture = WolvesWithArmor.id("textures/entity/wolf/armor/wolf_armor_" + name + ".png");
     }
 
+    public WolfArmorItem(int bonus, String name, boolean fireproof) {
+        super(new Item.Settings().maxCount(1).group(WolvesWithArmor.GROUP).fireproof());
+        this.bonus = bonus;
+        this.entityTexture = WolvesWithArmor.id("textures/entity/wolf/armor/wolf_armor_" + name + ".png");
+    }
+
     @Environment(EnvType.CLIENT)
     public Identifier getEntityTexture() {
         return this.entityTexture;

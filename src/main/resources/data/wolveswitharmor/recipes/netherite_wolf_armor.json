@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "dgd"
+  ],
+  "key": {
+    "d": {
+      "item": "minecraft:netherite_ingot"
+    },
+    "g": {
+      "item": "minecraft:gold_ingot"
+    }
+  },
+  "result": {
+    "item": "wolveswitharmor:netherite_wolf_armor",
+    "count": 1
+  }
+}
