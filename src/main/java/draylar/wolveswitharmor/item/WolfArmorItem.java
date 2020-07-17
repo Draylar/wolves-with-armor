@@ -4,6 +4,8 @@ import draylar.wolveswitharmor.WolvesWithArmor;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.item.TooltipContext;
+import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.enchantment.Enchantments;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.LiteralText;
@@ -37,8 +39,9 @@ public class WolfArmorItem extends Item {
         return this.entityTexture;
     }
 
-    public int getBonus() {
-        return this.bonus;
+    public int getBonus(ItemStack stack) {
+        int protectionLevel = EnchantmentHelper.getLevel(Enchantments.PROTECTION, stack) * 2;
+        return this.bonus + protectionLevel;
     }
 
     @Override
@@ -48,6 +51,10 @@ public class WolfArmorItem extends Item {
 
         tooltip.add(new LiteralText(""));
         tooltip.add(new TranslatableText("wolveswitharmor.tooltip.when_equipped").formatted(Formatting.GRAY));
-        tooltip.add(new TranslatableText("wolveswitharmor.tooltip.bonus", bonus).formatted(Formatting.BLUE));
+        tooltip.add(new TranslatableText("wolveswitharmor.tooltip.bonus", getBonus(stack)).formatted(Formatting.BLUE));
+
+        if(stack.hasEnchantments()) {
+            tooltip.add(new LiteralText(""));
+        }
     }
 }

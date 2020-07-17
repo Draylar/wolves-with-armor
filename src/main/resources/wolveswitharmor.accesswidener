@@ -1,0 +1,31 @@
+accessWidener   v1  named
+
+accessible field   net/minecraft/client/render/entity/model/WolfEntityModel    head    Lnet/minecraft/client/model/ModelPart;
+mutable field   net/minecraft/client/render/entity/model/WolfEntityModel    head    Lnet/minecraft/client/model/ModelPart;
+
+accessible field   net/minecraft/client/render/entity/model/WolfEntityModel    field_20788    Lnet/minecraft/client/model/ModelPart;
+mutable field   net/minecraft/client/render/entity/model/WolfEntityModel    field_20788    Lnet/minecraft/client/model/ModelPart;
+
+accessible field   net/minecraft/client/render/entity/model/WolfEntityModel    torso    Lnet/minecraft/client/model/ModelPart;
+mutable field   net/minecraft/client/render/entity/model/WolfEntityModel    torso    Lnet/minecraft/client/model/ModelPart;
+
+accessible field   net/minecraft/client/render/entity/model/WolfEntityModel    rightBackLeg    Lnet/minecraft/client/model/ModelPart;
+mutable field   net/minecraft/client/render/entity/model/WolfEntityModel    rightBackLeg    Lnet/minecraft/client/model/ModelPart;
+
+accessible field   net/minecraft/client/render/entity/model/WolfEntityModel    leftBackLeg    Lnet/minecraft/client/model/ModelPart;
+mutable field   net/minecraft/client/render/entity/model/WolfEntityModel    leftBackLeg    Lnet/minecraft/client/model/ModelPart;
+
+accessible field   net/minecraft/client/render/entity/model/WolfEntityModel    rightFrontLeg    Lnet/minecraft/client/model/ModelPart;
+mutable field   net/minecraft/client/render/entity/model/WolfEntityModel    rightFrontLeg    Lnet/minecraft/client/model/ModelPart;
+
+accessible field   net/minecraft/client/render/entity/model/WolfEntityModel    leftFrontLeg    Lnet/minecraft/client/model/ModelPart;
+mutable field   net/minecraft/client/render/entity/model/WolfEntityModel    leftFrontLeg    Lnet/minecraft/client/model/ModelPart;
+
+accessible field   net/minecraft/client/render/entity/model/WolfEntityModel    tail    Lnet/minecraft/client/model/ModelPart;
+mutable field   net/minecraft/client/render/entity/model/WolfEntityModel    tail    Lnet/minecraft/client/model/ModelPart;
+
+accessible field   net/minecraft/client/render/entity/model/WolfEntityModel    field_20789    Lnet/minecraft/client/model/ModelPart;
+mutable field   net/minecraft/client/render/entity/model/WolfEntityModel    field_20789    Lnet/minecraft/client/model/ModelPart;
+
+accessible field   net/minecraft/client/render/entity/model/WolfEntityModel    neck    Lnet/minecraft/client/model/ModelPart;
+mutable field   net/minecraft/client/render/entity/model/WolfEntityModel    neck    Lnet/minecraft/client/model/ModelPart;
