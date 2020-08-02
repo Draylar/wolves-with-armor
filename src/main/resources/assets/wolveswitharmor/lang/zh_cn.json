@@ -1,0 +1,12 @@
+{
+  "item.wolveswitharmor.leather_wolf_armor": "皮革狼铠",
+  "item.wolveswitharmor.golden_wolf_armor": "金狼铠",
+  "item.wolveswitharmor.iron_wolf_armor": "铁狼铠",
+  "item.wolveswitharmor.diamond_wolf_armor": "钻石狼铠",
+  "item.wolveswitharmor.netherite_wolf_armor": "下界合金狼铠",
+
+  "itemGroup.wolveswitharmor.group": "狼铠 §7(Wolves With Armor)",
+
+  "wolveswitharmor.tooltip.when_equipped": "狼在装备后会获得:",
+  "wolveswitharmor.tooltip.bonus": " +%s 护甲"
+}
