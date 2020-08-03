@@ -1,6 +1,7 @@
 package draylar.wolveswitharmor.item;
 
 import draylar.wolveswitharmor.WolvesWithArmor;
+import draylar.wolveswitharmor.data.WolfArmorData;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.item.TooltipContext;
@@ -21,17 +22,20 @@ public class WolfArmorItem extends Item {
 
     private final int bonus;
     private final Identifier entityTexture;
+    private final WolfArmorData data;
 
-    public WolfArmorItem(int bonus, String name) {
+    public WolfArmorItem(WolfArmorData data) {
         super(new Item.Settings().maxCount(1).group(WolvesWithArmor.GROUP));
-        this.bonus = bonus;
-        this.entityTexture = WolvesWithArmor.id("textures/entity/wolf/armor/wolf_armor_" + name + ".png");
+        this.bonus = data.getBonus();
+        this.data = data;
+        this.entityTexture = WolvesWithArmor.id("textures/entity/wolf/armor/wolf_armor_" + data.getName() + ".png");
     }
 
-    public WolfArmorItem(int bonus, String name, boolean fireproof) {
+    public WolfArmorItem(WolfArmorData data, boolean isFireproof) {
         super(new Item.Settings().maxCount(1).group(WolvesWithArmor.GROUP).fireproof());
-        this.bonus = bonus;
-        this.entityTexture = WolvesWithArmor.id("textures/entity/wolf/armor/wolf_armor_" + name + ".png");
+        this.bonus = data.getBonus();
+        this.data = data;
+        this.entityTexture = WolvesWithArmor.id("textures/entity/wolf/armor/wolf_armor_" + data.getName() + ".png");
     }
 
     @Environment(EnvType.CLIENT)

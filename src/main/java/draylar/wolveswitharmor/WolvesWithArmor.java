@@ -1,8 +1,9 @@
 package draylar.wolveswitharmor;
 
+import draylar.staticcontent.StaticContent;
 import draylar.wolveswitharmor.cca.WolfArmorComponent;
+import draylar.wolveswitharmor.data.WolfArmorData;
 import draylar.wolveswitharmor.item.WolfArmorItem;
-import draylar.wolveswitharmor.registry.Items;
 import nerdhub.cardinal.components.api.ComponentRegistry;
 import nerdhub.cardinal.components.api.ComponentType;
 import nerdhub.cardinal.components.api.event.EntityComponentCallback;
@@ -15,18 +16,19 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.Registry;
 
 public class WolvesWithArmor implements ModInitializer {
 
-    public static final ItemGroup GROUP = FabricItemGroupBuilder.build(id("group"), () -> new ItemStack(Items.DIAMOND_WOLF_ARMOR));
+    public static final ItemGroup GROUP = FabricItemGroupBuilder.build(id("group"), () -> new ItemStack(Registry.ITEM.get(id("diamond_wolf_armor"))));
     public static final ComponentType<WolfArmorComponent> WOLF_ARMOR = ComponentRegistry.INSTANCE.registerIfAbsent(id("wolf_armor"), WolfArmorComponent.class);
 
     @Override
     public void onInitialize() {
+        StaticContent.load(id("wolf_armor"), WolfArmorData.class);
+
         EntityComponentCallback.event(WolfEntity.class).register((wolfEntity, components) ->
                 components.put(WOLF_ARMOR, new WolfArmorComponent(wolfEntity)));
-
-        Items.init();
 
         UseEntityCallback.EVENT.register((playerEntity, world, hand, entity, entityHitResult) -> {
             if (entity instanceof WolfEntity) {

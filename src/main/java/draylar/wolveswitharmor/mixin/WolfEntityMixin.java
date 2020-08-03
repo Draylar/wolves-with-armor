@@ -1,7 +1,7 @@
 package draylar.wolveswitharmor.mixin;
 
 import draylar.wolveswitharmor.WolvesWithArmor;
-import draylar.wolveswitharmor.registry.Items;
+import draylar.wolveswitharmor.item.WolfArmorItem;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.passive.TameableEntity;
 import net.minecraft.entity.passive.WolfEntity;
@@ -19,7 +19,7 @@ public abstract class WolfEntityMixin extends TameableEntity {
     @Override
     public void setOnFireFor(int seconds) {
         ItemStack armor = WolvesWithArmor.WOLF_ARMOR.get(this).getArmor();
-        if(armor != null && armor.getItem().equals(Items.NETHERITE_WOLF_ARMOR)) {
+        if(armor != null && armor.getItem() instanceof WolfArmorItem && armor.getItem().isFireproof()) {
             return;
         }
 
@@ -29,7 +29,7 @@ public abstract class WolfEntityMixin extends TameableEntity {
     @Override
     public boolean isFireImmune() {
         ItemStack armor = WolvesWithArmor.WOLF_ARMOR.get(this).getArmor();
-        if(armor != null && armor.getItem().equals(Items.NETHERITE_WOLF_ARMOR)) {
+        if(armor != null && armor.getItem() instanceof WolfArmorItem && armor.getItem().isFireproof()) {
             return true;
         }
 

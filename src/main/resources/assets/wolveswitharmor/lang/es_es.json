@@ -1,0 +1,12 @@
+{
+  "item.wolveswitharmor.leather_wolf_armor": "Armadura para lobo de cuero",
+  "item.wolveswitharmor.golden_wolf_armor": "Armadura para lobo de oro",
+  "item.wolveswitharmor.iron_wolf_armor": "Armadura para lobo de hierro",
+  "item.wolveswitharmor.diamond_wolf_armor": "Armadura para lobo de diamante",
+  "item.wolveswitharmor.netherite_wolf_armor": "Armadura para lobo de netherita",
+
+  "itemGroup.wolveswitharmor.group": "Lobos con armadura",
+
+  "wolveswitharmor.tooltip.when_equipped": "Cuando se equipa en un lobo:",
+  "wolveswitharmor.tooltip.bonus": " +%s Armadura"
+}

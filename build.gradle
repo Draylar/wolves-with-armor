@@ -15,6 +15,7 @@ minecraft {
 }
 
 repositories {
+    maven { url "http://server.bbkr.space:8081/artifactory/libs-release" }
     maven { url 'https://jitpack.io' }
 }
 
@@ -30,6 +31,9 @@ dependencies {
     include "com.github.OnyxStudios.Cardinal-Components-API:cardinal-components-base:${project.cardinal_components_version}"
     modCompile "com.github.OnyxStudios.Cardinal-Components-API:cardinal-components-entity:${project.cardinal_components_version}"
     include "com.github.OnyxStudios.Cardinal-Components-API:cardinal-components-entity:${project.cardinal_components_version}"
+
+    modImplementation 'com.github.Draylar:static-content:1.0.0'
+    include 'com.github.Draylar:static-content:1.0.0'
 }
 
 processResources {
