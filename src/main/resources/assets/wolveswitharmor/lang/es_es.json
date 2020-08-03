@@ -1,12 +1,12 @@
 {
-  "item.wolveswitharmor.leather_wolf_armor": "Armadura para lobo de cuero",
-  "item.wolveswitharmor.golden_wolf_armor": "Armadura para lobo de oro",
-  "item.wolveswitharmor.iron_wolf_armor": "Armadura para lobo de hierro",
-  "item.wolveswitharmor.diamond_wolf_armor": "Armadura para lobo de diamante",
-  "item.wolveswitharmor.netherite_wolf_armor": "Armadura para lobo de netherita",
+  "item.wolveswitharmor.leather_wolf_armor": "Armadura de cuero para lobo",
+  "item.wolveswitharmor.golden_wolf_armor": "Armadura de oro para lobo",
+  "item.wolveswitharmor.iron_wolf_armor": "Armadura de hierro para lobo ",
+  "item.wolveswitharmor.diamond_wolf_armor": "Armadura de diamante para lobo ",
+  "item.wolveswitharmor.netherite_wolf_armor": "Armadura de netherita para lobo ",
 
-  "itemGroup.wolveswitharmor.group": "Lobos con armadura",
+  "itemGroup.wolveswitharmor.group": "Armadura para lobo",
 
-  "wolveswitharmor.tooltip.when_equipped": "Cuando se equipa en un lobo:",
+  "wolveswitharmor.tooltip.when_equipped": "Equipada en lobo:",
   "wolveswitharmor.tooltip.bonus": " +%s Armadura"
 }
