@@ -53,7 +53,7 @@ public class WolfArmorFeatureRenderer extends FeatureRenderer<WolfEntity, WolfEn
                 s = 1.0F;
             }
 
-            VertexConsumer vertexConsumer = ItemRenderer.method_27952(vertexConsumerProvider, RenderLayer.getArmorCutoutNoCull(armorItem.getEntityTexture()), false, itemStack.hasEnchantments());
+            VertexConsumer vertexConsumer = ItemRenderer.getArmorVertexConsumer(vertexConsumerProvider, RenderLayer.getArmorCutoutNoCull(armorItem.getEntityTexture()), false, itemStack.hasEnchantments());
             this.model.render(matrixStack, vertexConsumer, i, OverlayTexture.DEFAULT_UV, q, r, s, 1.0F);
         }
     }
