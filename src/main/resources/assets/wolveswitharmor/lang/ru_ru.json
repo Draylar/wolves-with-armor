@@ -1,0 +1,12 @@
+{
+  "item.wolveswitharmor.leather_wolf_armor": "Коженая Броня для Волка",
+  "item.wolveswitharmor.golden_wolf_armor": "Золотая Броня для Волка",
+  "item.wolveswitharmor.iron_wolf_armor": "Железная Броня для Волка",
+  "item.wolveswitharmor.diamond_wolf_armor": "Алмазная Броня для Волка",
+  "item.wolveswitharmor.netherite_wolf_armor": "Незеритовая Броня для Волка",
+
+  "itemGroup.wolveswitharmor.group": "Wolves With Armor",
+
+  "wolveswitharmor.tooltip.when_equipped": "При надевании на волка:",
+  "wolveswitharmor.tooltip.bonus": " +%s Броня"
+}
