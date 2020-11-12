@@ -4,6 +4,11 @@
   "version": "${version}",
   "name": "Wolves With Armor",
   "description": "Wolves With Armor adds special armor items for wolves (and a few extra utilities) that keep them nice and safe.",
+  "contact": {
+    "sources": "https://github.com/Draylar/wolves-with-armor",
+    "homepage": "https://www.curseforge.com/minecraft/mc-mods/wolves-with-armor",
+    "issues": "https://github.com/Draylar/wolves-with-armor/issues"
+  },
   "authors": [
     "Draylar"
   ],
