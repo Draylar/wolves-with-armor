@@ -13,7 +13,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public class EnchantmentMixin {
 
     @Inject(
-            method = "isAcceptableItem",
+            method = "canEnchant",
             at = @At("HEAD"),
             cancellable = true
     )

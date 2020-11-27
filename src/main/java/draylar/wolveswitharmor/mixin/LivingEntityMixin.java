@@ -20,11 +20,11 @@ public abstract class LivingEntityMixin extends Entity {
         super(type, world);
     }
 
-    @Inject(method = "getArmor", at = @At("HEAD"), cancellable = true)
+    @Inject(method = "getArmorValue", at = @At("HEAD"), cancellable = true)
     private void getArmor(CallbackInfoReturnable<Integer> cir) {
         if((Object) this instanceof WolfEntity) {
-            WolfEntity wolfEntity = (WolfEntity) (Object) this;
-            ItemStack stack = WolvesWithArmor.WOLF_ARMOR.get(wolfEntity).getArmor();
+            WolfEntity wolf = (WolfEntity) (Object) this;
+            ItemStack stack = WolvesWithArmor.getAccessor(wolf).getArmor();
 
             if(stack.getItem() instanceof WolfArmorItem) {
                 cir.setReturnValue(((WolfArmorItem) stack.getItem()).getBonus(stack));

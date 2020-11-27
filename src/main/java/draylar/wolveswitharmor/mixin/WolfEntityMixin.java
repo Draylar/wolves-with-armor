@@ -17,22 +17,22 @@ public abstract class WolfEntityMixin extends TameableEntity {
     }
 
     @Override
-    public void setOnFireFor(int seconds) {
-        ItemStack armor = WolvesWithArmor.WOLF_ARMOR.get(this).getArmor();
-        if(armor != null && armor.getItem() instanceof WolfArmorItem && armor.getItem().isFireproof()) {
+    public void setSecondsOnFire(int seconds) {
+        ItemStack armor = WolvesWithArmor.getAccessor((WolfEntity) (Object) this).getArmor();
+        if(armor != null && armor.getItem() instanceof WolfArmorItem && armor.getItem().isFireResistant()) {
             return;
         }
 
-        super.setOnFireFor(seconds);
+        super.setSecondsOnFire(seconds);
     }
 
     @Override
-    public boolean isFireImmune() {
-        ItemStack armor = WolvesWithArmor.WOLF_ARMOR.get(this).getArmor();
-        if(armor != null && armor.getItem() instanceof WolfArmorItem && armor.getItem().isFireproof()) {
+    public boolean fireImmune() {
+        ItemStack armor = WolvesWithArmor.getAccessor((WolfEntity) (Object) this).getArmor();
+        if(armor != null && armor.getItem() instanceof WolfArmorItem && armor.getItem().isFireResistant()) {
             return true;
         }
 
-        return super.isFireImmune();
+        return super.fireImmune();
     }
 }

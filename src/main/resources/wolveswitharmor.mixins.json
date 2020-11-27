@@ -2,9 +2,13 @@
   "required": true,
   "package": "draylar.wolveswitharmor.mixin",
   "compatibilityLevel": "JAVA_8",
+  "refmap": "wolveswitharmor.refmap.json",
+  "minVersion": "0.7",
   "mixins": [
     "EnchantmentMixin",
+    "ItemColorsMixin",
     "LivingEntityMixin",
+    "WolfArmorMixin",
     "WolfEntityMixin"
   ],
   "client": [

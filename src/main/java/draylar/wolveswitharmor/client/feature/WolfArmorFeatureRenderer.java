@@ -1,42 +1,42 @@
 package draylar.wolveswitharmor.client.feature;
 
+import com.mojang.blaze3d.matrix.MatrixStack;
+import com.mojang.blaze3d.vertex.IVertexBuilder;
 import draylar.wolveswitharmor.WolvesWithArmor;
 import draylar.wolveswitharmor.client.WolfArmorModel;
 import draylar.wolveswitharmor.item.DyeableWolfArmorItem;
 import draylar.wolveswitharmor.item.WolfArmorItem;
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
-import net.minecraft.client.render.OverlayTexture;
-import net.minecraft.client.render.RenderLayer;
-import net.minecraft.client.render.VertexConsumer;
-import net.minecraft.client.render.VertexConsumerProvider;
-import net.minecraft.client.render.entity.feature.FeatureRenderer;
-import net.minecraft.client.render.entity.feature.FeatureRendererContext;
-import net.minecraft.client.render.entity.model.WolfEntityModel;
-import net.minecraft.client.render.item.ItemRenderer;
-import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.client.renderer.IRenderTypeBuffer;
+import net.minecraft.client.renderer.ItemRenderer;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.entity.IEntityRenderer;
+import net.minecraft.client.renderer.entity.layers.LayerRenderer;
+import net.minecraft.client.renderer.entity.model.WolfModel;
+import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.entity.passive.WolfEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 
-@Environment(EnvType.CLIENT)
-public class WolfArmorFeatureRenderer extends FeatureRenderer<WolfEntity, WolfEntityModel<WolfEntity>> {
+@OnlyIn(Dist.CLIENT)
+public class WolfArmorFeatureRenderer extends LayerRenderer<WolfEntity, WolfModel<WolfEntity>> {
 
     private final WolfArmorModel model = new WolfArmorModel(0.35f);
 
-    public WolfArmorFeatureRenderer(FeatureRendererContext<WolfEntity, WolfEntityModel<WolfEntity>> featureRendererContext) {
+    public WolfArmorFeatureRenderer(IEntityRenderer<WolfEntity, WolfModel<WolfEntity>> featureRendererContext) {
         super(featureRendererContext);
     }
 
     @Override
-    public void render(MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i, WolfEntity wolfEntity, float f, float g, float h, float j, float k, float l) {
-        ItemStack itemStack = WolvesWithArmor.WOLF_ARMOR.get(wolfEntity).getArmor();
+    public void render(MatrixStack matrixStack, IRenderTypeBuffer vertexConsumerProvider, int i, WolfEntity wolf, float f, float g, float h, float j, float k, float l) {
+        ItemStack itemStack = WolvesWithArmor.getAccessor(wolf).getArmor();
 
         if (itemStack.getItem() instanceof WolfArmorItem) {
             WolfArmorItem armorItem = (WolfArmorItem) itemStack.getItem();
-            this.getContextModel().copyStateTo(this.model);
+            this.getParentModel().copyPropertiesTo(this.model);
 
-            this.model.animateModel(wolfEntity, f, g, h);
-            this.model.setAngles(wolfEntity, f, g, j, k, l);
+            this.model.prepareMobModel(wolf, f, g, h);
+            this.model.setupAnim(wolf, f, g, j, k, l);
 
             float q;
             float r;
@@ -53,8 +53,8 @@ public class WolfArmorFeatureRenderer extends FeatureRenderer<WolfEntity, WolfEn
                 s = 1.0F;
             }
 
-            VertexConsumer vertexConsumer = ItemRenderer.getArmorVertexConsumer(vertexConsumerProvider, RenderLayer.getArmorCutoutNoCull(armorItem.getEntityTexture()), false, itemStack.hasEnchantments());
-            this.model.render(matrixStack, vertexConsumer, i, OverlayTexture.DEFAULT_UV, q, r, s, 1.0F);
+            IVertexBuilder vertexConsumer = ItemRenderer.getArmorFoilBuffer(vertexConsumerProvider, RenderType.armorCutoutNoCull(armorItem.getEntityTexture()), false, itemStack.isEnchanted());
+            this.model.renderToBuffer(matrixStack, vertexConsumer, i, OverlayTexture.NO_OVERLAY, q, r, s, 1.0F);
         }
     }
 }

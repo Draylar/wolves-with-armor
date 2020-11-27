@@ -2,63 +2,60 @@ package draylar.wolveswitharmor.item;
 
 import draylar.wolveswitharmor.WolvesWithArmor;
 import draylar.wolveswitharmor.data.WolfArmorData;
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
-import net.minecraft.client.item.TooltipContext;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.text.LiteralText;
-import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
-import net.minecraft.util.Formatting;
-import net.minecraft.util.Identifier;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.util.text.TextFormatting;
+import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.World;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 
 import java.util.List;
 
 public class WolfArmorItem extends Item {
 
     private final int bonus;
-    private final Identifier entityTexture;
-    private final WolfArmorData data;
+    private final ResourceLocation entityTexture;
 
     public WolfArmorItem(WolfArmorData data) {
-        super(new Item.Settings().maxCount(1).group(WolvesWithArmor.GROUP));
+        super(new Item.Properties().stacksTo(1).tab(WolvesWithArmor.GROUP));
         this.bonus = data.getBonus();
-        this.data = data;
         this.entityTexture = WolvesWithArmor.id("textures/entity/wolf/armor/wolf_armor_" + data.getName() + ".png");
     }
 
     public WolfArmorItem(WolfArmorData data, boolean isFireproof) {
-        super(new Item.Settings().maxCount(1).group(WolvesWithArmor.GROUP).fireproof());
+        super(new Item.Properties().stacksTo(1).tab(WolvesWithArmor.GROUP).fireResistant());
         this.bonus = data.getBonus();
-        this.data = data;
         this.entityTexture = WolvesWithArmor.id("textures/entity/wolf/armor/wolf_armor_" + data.getName() + ".png");
     }
 
-    @Environment(EnvType.CLIENT)
-    public Identifier getEntityTexture() {
+    @OnlyIn(Dist.CLIENT)
+    public ResourceLocation getEntityTexture() {
         return this.entityTexture;
     }
 
     public int getBonus(ItemStack stack) {
-        int protectionLevel = EnchantmentHelper.getLevel(Enchantments.PROTECTION, stack) * 2;
+        int protectionLevel = EnchantmentHelper.getItemEnchantmentLevel(Enchantments.ALL_DAMAGE_PROTECTION, stack) * 2;
         return this.bonus + protectionLevel;
     }
 
     @Override
-    @Environment(EnvType.CLIENT)
-    public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext context) {
-        super.appendTooltip(stack, world, tooltip, context);
+    @OnlyIn(Dist.CLIENT)
+    public void appendHoverText(ItemStack stack, World world, List<ITextComponent> tooltip, ITooltipFlag context) {
+        super.appendHoverText(stack, world, tooltip, context);
 
-        tooltip.add(new LiteralText(""));
-        tooltip.add(new TranslatableText("wolveswitharmor.tooltip.when_equipped").formatted(Formatting.GRAY));
-        tooltip.add(new TranslatableText("wolveswitharmor.tooltip.bonus", getBonus(stack)).formatted(Formatting.BLUE));
+        tooltip.add(new StringTextComponent(""));
+        tooltip.add(new TranslationTextComponent("wolveswitharmor.tooltip.when_equipped").withStyle(TextFormatting.GRAY));
+        tooltip.add(new TranslationTextComponent("wolveswitharmor.tooltip.bonus", getBonus(stack)).withStyle(TextFormatting.BLUE));
 
-        if(stack.hasEnchantments()) {
-            tooltip.add(new LiteralText(""));
+        if(stack.isEnchanted()) {
+            tooltip.add(new StringTextComponent(""));
         }
     }
 }
