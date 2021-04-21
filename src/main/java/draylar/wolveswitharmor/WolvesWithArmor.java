@@ -1,33 +1,28 @@
 package draylar.wolveswitharmor;
 
+import dev.onyxstudios.cca.api.v3.component.ComponentKey;
+import dev.onyxstudios.cca.api.v3.component.ComponentRegistryV3;
+import dev.onyxstudios.cca.api.v3.entity.EntityComponentFactoryRegistry;
+import dev.onyxstudios.cca.api.v3.entity.EntityComponentInitializer;
 import draylar.staticcontent.StaticContent;
 import draylar.wolveswitharmor.cca.WolfArmorComponent;
 import draylar.wolveswitharmor.data.WolfArmorData;
 import draylar.wolveswitharmor.item.WolfArmorItem;
-import nerdhub.cardinal.components.api.ComponentRegistry;
-import nerdhub.cardinal.components.api.ComponentType;
-import nerdhub.cardinal.components.api.event.EntityComponentCallback;
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.fabric.api.event.player.UseEntityCallback;
 import net.minecraft.entity.passive.WolfEntity;
-import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
 
-public class WolvesWithArmor implements ModInitializer {
+public class WolvesWithArmor implements ModInitializer, EntityComponentInitializer {
 
-    public static final ComponentType<WolfArmorComponent> WOLF_ARMOR = ComponentRegistry.INSTANCE.registerIfAbsent(id("wolf_armor"), WolfArmorComponent.class);
+    public static final ComponentKey<WolfArmorComponent> WOLF_ARMOR = ComponentRegistryV3.INSTANCE.getOrCreate(id("wolf_armor"), WolfArmorComponent.class);
 
     @Override
     public void onInitialize() {
         StaticContent.load(id("wolf_armor"), WolfArmorData.class);
-
-        EntityComponentCallback.event(WolfEntity.class).register((wolfEntity, components) ->
-                components.put(WOLF_ARMOR, new WolfArmorComponent(wolfEntity)));
 
         UseEntityCallback.EVENT.register((playerEntity, world, hand, entity, entityHitResult) -> {
             if (entity instanceof WolfEntity) {
@@ -70,5 +65,10 @@ public class WolvesWithArmor implements ModInitializer {
 
     public static Identifier id(String name) {
         return new Identifier("wolveswitharmor", name);
+    }
+
+    @Override
+    public void registerEntityComponentFactories(EntityComponentFactoryRegistry registry) {
+        registry.registerFor(WolfEntity.class, WOLF_ARMOR, WolfArmorComponent::new);
     }
 }
