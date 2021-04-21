@@ -42,7 +42,10 @@ public class WolvesWithArmor implements ModInitializer {
                         if (wolfComponent.getArmor().isEmpty() && playerEntity.getMainHandStack().getItem() instanceof WolfArmorItem) {
                             if(!world.isClient) {
                                 wolfComponent.setArmor(playerEntity.getMainHandStack());
-                                playerEntity.setStackInHand(Hand.MAIN_HAND, ItemStack.EMPTY);
+
+                                if(!playerEntity.isCreative()) {
+                                    playerEntity.setStackInHand(Hand.MAIN_HAND, ItemStack.EMPTY);
+                                }
                             }
 
                             return ActionResult.SUCCESS;
