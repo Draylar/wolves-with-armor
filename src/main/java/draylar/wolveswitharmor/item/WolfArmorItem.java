@@ -8,6 +8,7 @@ import net.minecraft.client.item.TooltipContext;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
@@ -25,14 +26,14 @@ public class WolfArmorItem extends Item {
     private final WolfArmorData data;
 
     public WolfArmorItem(WolfArmorData data) {
-        super(new Item.Settings().maxCount(1).group(WolvesWithArmor.GROUP));
+        super(new Item.Settings().maxCount(1).group(ItemGroup.COMBAT));
         this.bonus = data.getBonus();
         this.data = data;
         this.entityTexture = WolvesWithArmor.id("textures/entity/wolf/armor/wolf_armor_" + data.getName() + ".png");
     }
 
     public WolfArmorItem(WolfArmorData data, boolean isFireproof) {
-        super(new Item.Settings().maxCount(1).group(WolvesWithArmor.GROUP).fireproof());
+        super(new Item.Settings().maxCount(1).group(ItemGroup.COMBAT).fireproof());
         this.bonus = data.getBonus();
         this.data = data;
         this.entityTexture = WolvesWithArmor.id("textures/entity/wolf/armor/wolf_armor_" + data.getName() + ".png");

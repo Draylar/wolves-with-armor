@@ -20,7 +20,6 @@ import net.minecraft.util.registry.Registry;
 
 public class WolvesWithArmor implements ModInitializer {
 
-    public static final ItemGroup GROUP = FabricItemGroupBuilder.build(id("group"), () -> new ItemStack(Registry.ITEM.get(id("diamond_wolf_armor"))));
     public static final ComponentType<WolfArmorComponent> WOLF_ARMOR = ComponentRegistry.INSTANCE.registerIfAbsent(id("wolf_armor"), WolfArmorComponent.class);
 
     @Override
