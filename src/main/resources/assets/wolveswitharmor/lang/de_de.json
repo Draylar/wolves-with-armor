@@ -1,0 +1,12 @@
+{
+  "item.wolveswitharmor.leather_wolf_armor": "Lederner Wolfharnisch",
+  "item.wolveswitharmor.golden_wolf_armor": "Goldener Wolfharnisch",
+  "item.wolveswitharmor.iron_wolf_armor": "Eiserner Wolfharnisch",
+  "item.wolveswitharmor.diamond_wolf_armor": "Diamanter Wolfharnisch",
+  "item.wolveswitharmor.netherite_wolf_armor": "Netherit-Wolfharnisch",
+
+  "itemGroup.wolveswitharmor.group": "Wolves with Armor",
+
+  "wolveswitharmor.tooltip.when_equipped": "Wenn auf einem Wolf ausgestattet:",
+  "wolveswitharmor.tooltip.bonus": " +%s Panzer"
+}
