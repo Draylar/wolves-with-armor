@@ -1,5 +1,5 @@
 plugins {
-    id 'fabric-loom' version '0.4-SNAPSHOT'
+    id 'fabric-loom' version '0.8-SNAPSHOT'
     id 'maven-publish'
 }
 
@@ -15,40 +15,42 @@ minecraft {
 }
 
 repositories {
-    maven { url "http://server.bbkr.space:8081/artifactory/libs-release" }
+    maven {
+        name = 'Ladysnake Mods'
+        url = 'https://ladysnake.jfrog.io/artifactory/mods'
+    }
+
+    maven {
+        url = "http://server.bbkr.space:8081/artifactory/libs-release"
+        allowInsecureProtocol = true
+    }
+
     maven { url 'https://jitpack.io' }
 }
 
 dependencies {
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
     mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
-    modCompile "net.fabricmc:fabric-loader:${project.loader_version}"
-    modCompile "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+    modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+    modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
-    modCompile "io.github.prospector:modmenu:${project.mod_menu_version}"
-
-    modCompile "com.github.OnyxStudios.Cardinal-Components-API:cardinal-components-base:${project.cardinal_components_version}"
-    include "com.github.OnyxStudios.Cardinal-Components-API:cardinal-components-base:${project.cardinal_components_version}"
-    modCompile "com.github.OnyxStudios.Cardinal-Components-API:cardinal-components-entity:${project.cardinal_components_version}"
-    include "com.github.OnyxStudios.Cardinal-Components-API:cardinal-components-entity:${project.cardinal_components_version}"
+    modImplementation "io.github.onyxstudios.Cardinal-Components-API:cardinal-components-base:${project.cardinal_components_version}"
+    include "io.github.onyxstudios.Cardinal-Components-API:cardinal-components-base:${project.cardinal_components_version}"
+    modImplementation "io.github.onyxstudios.Cardinal-Components-API:cardinal-components-entity:${project.cardinal_components_version}"
+    include "io.github.onyxstudios.Cardinal-Components-API:cardinal-components-entity:${project.cardinal_components_version}"
 
     modImplementation 'com.github.Draylar:static-content:1.0.1'
     include 'com.github.Draylar:static-content:1.0.1'
 
-    modImplementation 'com.github.Draylar:maybe-data:master-SNAPSHOT'
-    include 'com.github.Draylar:maybe-data:master-SNAPSHOT'
+    modImplementation 'com.github.Draylar:maybe-data:1.17-SNAPSHOT'
+    include 'com.github.Draylar:maybe-data:1.17-SNAPSHOT'
 }
 
 processResources {
     inputs.property "version", project.version
 
-    from(sourceSets.main.resources.srcDirs) {
-        include "fabric.mod.json"
+    filesMatching('fabric.mod.json') {
         expand "version": project.version
-    }
-
-    from(sourceSets.main.resources.srcDirs) {
-        exclude "fabric.mod.json"
     }
 }
 

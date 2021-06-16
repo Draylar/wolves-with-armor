@@ -1,6 +1,7 @@
 package draylar.wolveswitharmor.client.feature;
 
 import draylar.wolveswitharmor.WolvesWithArmor;
+import draylar.wolveswitharmor.WolvesWithArmorClient;
 import draylar.wolveswitharmor.client.WolfArmorModel;
 import draylar.wolveswitharmor.item.DyeableWolfArmorItem;
 import draylar.wolveswitharmor.item.WolfArmorItem;
@@ -12,6 +13,7 @@ import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.entity.feature.FeatureRenderer;
 import net.minecraft.client.render.entity.feature.FeatureRendererContext;
+import net.minecraft.client.render.entity.model.EntityModelLoader;
 import net.minecraft.client.render.entity.model.WolfEntityModel;
 import net.minecraft.client.render.item.ItemRenderer;
 import net.minecraft.client.util.math.MatrixStack;
@@ -21,10 +23,11 @@ import net.minecraft.item.ItemStack;
 @Environment(EnvType.CLIENT)
 public class WolfArmorFeatureRenderer extends FeatureRenderer<WolfEntity, WolfEntityModel<WolfEntity>> {
 
-    private final WolfArmorModel model = new WolfArmorModel(0.35f);
+    private final WolfArmorModel model;
 
-    public WolfArmorFeatureRenderer(FeatureRendererContext<WolfEntity, WolfEntityModel<WolfEntity>> featureRendererContext) {
+    public WolfArmorFeatureRenderer(FeatureRendererContext<WolfEntity, WolfEntityModel<WolfEntity>> featureRendererContext, EntityModelLoader loader) {
         super(featureRendererContext);
+        model = new WolfArmorModel(loader.getModelPart(WolvesWithArmorClient.WOLF_ARMOR));
     }
 
     @Override

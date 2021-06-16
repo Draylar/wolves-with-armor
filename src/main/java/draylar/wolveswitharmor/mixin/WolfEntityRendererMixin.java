@@ -2,6 +2,7 @@ package draylar.wolveswitharmor.mixin;
 
 import draylar.wolveswitharmor.client.feature.WolfArmorFeatureRenderer;
 import net.minecraft.client.render.entity.EntityRenderDispatcher;
+import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.entity.MobEntityRenderer;
 import net.minecraft.client.render.entity.WolfEntityRenderer;
 import net.minecraft.client.render.entity.model.WolfEntityModel;
@@ -14,12 +15,12 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(WolfEntityRenderer.class)
 public abstract class WolfEntityRendererMixin extends MobEntityRenderer<WolfEntity, WolfEntityModel<WolfEntity>> {
 
-    public WolfEntityRendererMixin(EntityRenderDispatcher renderManager, WolfEntityModel<WolfEntity> model, float f) {
-        super(renderManager, model, f);
+    public WolfEntityRendererMixin(EntityRendererFactory.Context context, WolfEntityModel<WolfEntity> entityModel, float f) {
+        super(context, entityModel, f);
     }
 
     @Inject(method = "<init>", at = @At("RETURN"))
-    private void addWolfArmorFeature(EntityRenderDispatcher entityRenderDispatcher, CallbackInfo ci) {
-        this.addFeature(new WolfArmorFeatureRenderer(this));
+    private void addWolfArmorFeature(EntityRendererFactory.Context context, CallbackInfo ci) {
+        this.addFeature(new WolfArmorFeatureRenderer(this, context.getModelLoader()));
     }
 }

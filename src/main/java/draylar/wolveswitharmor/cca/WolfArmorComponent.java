@@ -3,11 +3,9 @@ package draylar.wolveswitharmor.cca;
 import dev.onyxstudios.cca.api.v3.component.ComponentV3;
 import dev.onyxstudios.cca.api.v3.component.sync.AutoSyncedComponent;
 import draylar.wolveswitharmor.WolvesWithArmor;
-import nerdhub.cardinal.components.api.ComponentType;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.passive.WolfEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.NbtCompound;
 
 public class WolfArmorComponent implements ComponentV3, AutoSyncedComponent {
 
@@ -28,14 +26,14 @@ public class WolfArmorComponent implements ComponentV3, AutoSyncedComponent {
     }
 
     @Override
-    public void readFromNbt(CompoundTag tag) {
-        armor = ItemStack.fromTag(tag.getCompound("ArmorInventory"));
+    public void readFromNbt(NbtCompound tag) {
+        armor = ItemStack.fromNbt(tag.getCompound("ArmorInventory"));
     }
 
     @Override
-    public void writeToNbt(CompoundTag tag) {
-        CompoundTag armorInventoryTag = new CompoundTag();
-        armor.toTag(armorInventoryTag);
+    public void writeToNbt(NbtCompound tag) {
+        NbtCompound armorInventoryTag = new NbtCompound();
+        armor.writeNbt(armorInventoryTag);
         tag.put("ArmorInventory", armorInventoryTag);
     }
 }
