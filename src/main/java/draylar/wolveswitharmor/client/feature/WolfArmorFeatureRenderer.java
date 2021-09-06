@@ -34,8 +34,7 @@ public class WolfArmorFeatureRenderer extends FeatureRenderer<WolfEntity, WolfEn
     public void render(MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i, WolfEntity wolfEntity, float f, float g, float h, float j, float k, float l) {
         ItemStack itemStack = WolvesWithArmor.WOLF_ARMOR.get(wolfEntity).getArmor();
 
-        if (itemStack.getItem() instanceof WolfArmorItem) {
-            WolfArmorItem armorItem = (WolfArmorItem) itemStack.getItem();
+        if (itemStack.getItem() instanceof WolfArmorItem armorItem) {
             this.getContextModel().copyStateTo(this.model);
 
             this.model.animateModel(wolfEntity, f, g, h);
@@ -45,8 +44,8 @@ public class WolfArmorFeatureRenderer extends FeatureRenderer<WolfEntity, WolfEn
             float r;
             float s;
 
-            if (armorItem instanceof DyeableWolfArmorItem) {
-                int m = ((DyeableWolfArmorItem) armorItem).getColor(itemStack);
+            if (armorItem instanceof DyeableWolfArmorItem dyeable) {
+                int m = dyeable.getColor(itemStack);
                 q = (float)(m >> 16 & 255) / 255.0F;
                 r = (float)(m >> 8 & 255) / 255.0F;
                 s = (float)(m & 255) / 255.0F;

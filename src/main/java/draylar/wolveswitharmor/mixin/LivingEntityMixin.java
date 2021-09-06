@@ -26,8 +26,8 @@ public abstract class LivingEntityMixin extends Entity {
             WolfEntity wolfEntity = (WolfEntity) (Object) this;
             ItemStack stack = WolvesWithArmor.WOLF_ARMOR.get(wolfEntity).getArmor();
 
-            if(stack.getItem() instanceof WolfArmorItem) {
-                cir.setReturnValue(((WolfArmorItem) stack.getItem()).getBonus(stack));
+            if(stack.getItem() instanceof WolfArmorItem armorItem) {
+                cir.setReturnValue(armorItem.getBonus(stack));
             }
         }
     }

@@ -19,12 +19,10 @@ public class WolfInteractionHandler implements UseEntityCallback {
 
     @Override
     public ActionResult interact(PlayerEntity player, World world, Hand hand, Entity entity, @Nullable EntityHitResult hitResult) {
-        if (entity instanceof WolfEntity) {
-            WolfEntity wolfEntity = (WolfEntity) entity;
-
-            if (wolfEntity.getOwnerUuid() != null) {
-                if (wolfEntity.getOwnerUuid().equals(player.getUuid())) {
-                    WolfArmorComponent wolfComponent = WolvesWithArmor.WOLF_ARMOR.get(wolfEntity);
+        if (entity instanceof WolfEntity wolf) {
+            if (wolf.getOwnerUuid() != null) {
+                if (wolf.getOwnerUuid().equals(player.getUuid())) {
+                    WolfArmorComponent wolfComponent = WolvesWithArmor.WOLF_ARMOR.get(wolf);
 
                     // wolf has no armor, player has armor
                     if (wolfComponent.getArmor().isEmpty() && player.getMainHandStack().getItem() instanceof WolfArmorItem) {
@@ -32,7 +30,7 @@ public class WolfInteractionHandler implements UseEntityCallback {
                             wolfComponent.setArmor(player.getMainHandStack());
 
                             // play SFX for equipping wolf with armor
-                            wolfEntity.playSound(SoundEvents.ENTITY_HORSE_ARMOR, 0.5F, 1.0F);
+                            wolf.playSound(SoundEvents.ENTITY_HORSE_ARMOR, 0.5F, 1.0F);
 
                             // If the player is not in creative, clear their active slot.
                             if(!player.getAbilities().creativeMode) {
