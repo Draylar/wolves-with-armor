@@ -9,6 +9,7 @@ import net.minecraft.entity.passive.WolfEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.stat.Stats;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.EntityHitResult;
@@ -31,6 +32,9 @@ public class WolfInteractionHandler implements UseEntityCallback {
 
                             // play SFX for equipping wolf with armor
                             wolf.playSound(SoundEvents.ENTITY_HORSE_ARMOR, 0.5F, 1.0F);
+
+                            // increase item use statistic - #23
+                            player.incrementStat(Stats.USED.getOrCreateStat(player.getMainHandStack().getItem()));
 
                             // If the player is not in creative, clear their active slot.
                             if(!player.getAbilities().creativeMode) {
