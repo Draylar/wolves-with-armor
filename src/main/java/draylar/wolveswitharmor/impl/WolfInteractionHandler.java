@@ -30,7 +30,7 @@ public class WolfInteractionHandler implements UseEntityCallback {
                         if(!world.isClient) {
                             wolfComponent.setArmor(player.getMainHandStack());
 
-                            if(!player.isCreative()) {
+                            if(!player.getAbilities().creativeMode) {
                                 player.setStackInHand(Hand.MAIN_HAND, ItemStack.EMPTY);
                             }
                         }
