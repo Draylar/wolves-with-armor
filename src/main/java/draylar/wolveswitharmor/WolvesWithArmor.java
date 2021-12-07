@@ -1,12 +1,8 @@
 package draylar.wolveswitharmor;
 
-import dev.onyxstudios.cca.api.v3.component.ComponentKey;
-import dev.onyxstudios.cca.api.v3.component.ComponentRegistryV3;
-import dev.onyxstudios.cca.api.v3.entity.EntityComponentFactoryRegistry;
-import dev.onyxstudios.cca.api.v3.entity.EntityComponentInitializer;
 import draylar.staticcontent.StaticContent;
-import draylar.wolveswitharmor.cca.WolfArmorComponent;
 import draylar.wolveswitharmor.data.WolfArmorData;
+import draylar.wolveswitharmor.impl.WolfDataAccessor;
 import draylar.wolveswitharmor.impl.WolfInteractionHandler;
 import draylar.wolveswitharmor.registry.WWASounds;
 import net.fabricmc.api.ModInitializer;
@@ -14,9 +10,7 @@ import net.fabricmc.fabric.api.event.player.UseEntityCallback;
 import net.minecraft.entity.passive.WolfEntity;
 import net.minecraft.util.Identifier;
 
-public class WolvesWithArmor implements ModInitializer, EntityComponentInitializer {
-
-    public static final ComponentKey<WolfArmorComponent> WOLF_ARMOR = ComponentRegistryV3.INSTANCE.getOrCreate(id("wolf_armor"), WolfArmorComponent.class);
+public class WolvesWithArmor implements ModInitializer {
 
     @Override
     public void onInitialize() {
@@ -29,8 +23,7 @@ public class WolvesWithArmor implements ModInitializer, EntityComponentInitializ
         return new Identifier("wolveswitharmor", name);
     }
 
-    @Override
-    public void registerEntityComponentFactories(EntityComponentFactoryRegistry registry) {
-        registry.registerFor(WolfEntity.class, WOLF_ARMOR, WolfArmorComponent::new);
+    public static WolfDataAccessor getData(WolfEntity wolf) {
+        return ((WolfDataAccessor) wolf);
     }
 }

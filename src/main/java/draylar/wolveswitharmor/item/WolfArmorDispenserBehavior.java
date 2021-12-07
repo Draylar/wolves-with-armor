@@ -20,7 +20,7 @@ public class WolfArmorDispenserBehavior extends FallibleItemDispenserBehavior {
 
         List<WolfEntity> wolves = pointer
                 .getWorld()
-                .getEntitiesByClass(WolfEntity.class, new Box(blockPos), wolf -> wolf.isAlive() && WolvesWithArmor.WOLF_ARMOR.get(wolf).getArmor().isEmpty());
+                .getEntitiesByClass(WolfEntity.class, new Box(blockPos), wolf -> wolf.isAlive() && WolvesWithArmor.getData(wolf).getWolfArmor().isEmpty());
 
         Iterator<WolfEntity> iterator = wolves.iterator();
         WolfEntity wolf;
@@ -32,7 +32,7 @@ public class WolfArmorDispenserBehavior extends FallibleItemDispenserBehavior {
             wolf = iterator.next();
         } while(!(stack.getItem() instanceof WolfArmorItem) || !wolf.isTamed());
 
-        WolvesWithArmor.WOLF_ARMOR.get(wolf).setArmor(stack.split(1));
+        WolvesWithArmor.getData(wolf).setWolfArmor(stack.split(1));
         this.setSuccess(true);
         return stack;
     }

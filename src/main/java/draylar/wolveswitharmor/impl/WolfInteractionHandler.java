@@ -1,7 +1,6 @@
 package draylar.wolveswitharmor.impl;
 
 import draylar.wolveswitharmor.WolvesWithArmor;
-import draylar.wolveswitharmor.cca.WolfArmorComponent;
 import draylar.wolveswitharmor.item.WolfArmorItem;
 import draylar.wolveswitharmor.registry.WWASounds;
 import net.fabricmc.fabric.api.event.player.UseEntityCallback;
@@ -20,15 +19,15 @@ public class WolfInteractionHandler implements UseEntityCallback {
 
     @Override
     public ActionResult interact(PlayerEntity player, World world, Hand hand, Entity entity, @Nullable EntityHitResult hitResult) {
-        if (entity instanceof WolfEntity wolf) {
-            if (wolf.getOwnerUuid() != null) {
-                if (wolf.getOwnerUuid().equals(player.getUuid())) {
-                    WolfArmorComponent wolfComponent = WolvesWithArmor.WOLF_ARMOR.get(wolf);
+        if(entity instanceof WolfEntity wolf) {
+            if(wolf.getOwnerUuid() != null) {
+                if(wolf.getOwnerUuid().equals(player.getUuid())) {
+                    WolfDataAccessor data = WolvesWithArmor.getData(wolf);
 
                     // wolf has no armor, player has armor
-                    if (wolfComponent.getArmor().isEmpty() && player.getMainHandStack().getItem() instanceof WolfArmorItem) {
+                    if(data.getWolfArmor().isEmpty() && player.getMainHandStack().getItem() instanceof WolfArmorItem) {
                         if(!world.isClient) {
-                            wolfComponent.setArmor(player.getMainHandStack());
+                            data.setWolfArmor(player.getMainHandStack());
 
                             // play SFX for equipping wolf with armor
                             wolf.playSound(WWASounds.WOLF_ARMOR_EQUIP, 0.5F, 1.0F);
@@ -46,10 +45,10 @@ public class WolfInteractionHandler implements UseEntityCallback {
                     }
 
                     // wolf has armor, player has empty hand, player sneaking
-                    else if (!wolfComponent.getArmor().isEmpty() && player.getMainHandStack().isEmpty() && player.isSneaking()) {
+                    else if(!data.getWolfArmor().isEmpty() && player.getMainHandStack().isEmpty() && player.isSneaking()) {
                         if(!world.isClient) {
-                            ItemStack clonedArmor = wolfComponent.getArmor().copy();
-                            wolfComponent.setArmor(ItemStack.EMPTY);
+                            ItemStack clonedArmor = data.getWolfArmor().copy();
+                            data.setWolfArmor(ItemStack.EMPTY);
                             player.setStackInHand(Hand.MAIN_HAND, clonedArmor);
                         }
 

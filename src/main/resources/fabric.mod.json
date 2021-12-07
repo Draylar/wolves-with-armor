@@ -12,7 +12,7 @@
   "authors": [
     "Draylar"
   ],
-  "contributors": [
+  "artist": [
     "MORTADA KILLER 0"
   ],
   "license": "MIT",
@@ -24,9 +24,6 @@
     ],
     "client": [
       "draylar.wolveswitharmor.WolvesWithArmorClient"
-    ],
-    "cardinal-components-entity": [
-      "draylar.wolveswitharmor.WolvesWithArmor"
     ]
   },
   "mixins": [
@@ -37,10 +34,5 @@
     "fabricloader": "*",
     "fabric": "*",
     "minecraft": ">=1.18"
-  },
-  "custom": {
-    "cardinal-components": [
-      "wolveswitharmor:wolf_armor"
-    ]
   }
 }
