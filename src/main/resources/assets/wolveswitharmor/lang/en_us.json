@@ -8,5 +8,5 @@
   "itemGroup.wolveswitharmor.group": "Wolves With Armor",
 
   "wolveswitharmor.tooltip.when_equipped": "When equipped on a wolf:",
-  "wolveswitharmor.tooltip.bonus": " +%s Armor"
+  "wolveswitharmor.tooltip.bonus": "+%s Armor"
 }
