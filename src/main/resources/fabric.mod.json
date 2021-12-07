@@ -29,7 +29,6 @@
   "mixins": [
     "wolves-with-armor.mixins.json"
   ],
-  "accessWidener": "wolveswitharmor.accesswidener",
   "depends": {
     "fabricloader": "*",
     "fabric": "*",
