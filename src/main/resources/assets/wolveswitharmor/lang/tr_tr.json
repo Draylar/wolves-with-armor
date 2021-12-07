@@ -1,0 +1,12 @@
+{
+  "item.wolveswitharmor.leather_wolf_armor": "Deri Kurt Zırhı",
+  "item.wolveswitharmor.golden_wolf_armor": "Altın Kurt Zırhı",
+  "item.wolveswitharmor.iron_wolf_armor": "Demir Kurt Zırhı",
+  "item.wolveswitharmor.diamond_wolf_armor": "Elmas Kurt Zırhı",
+  "item.wolveswitharmor.netherite_wolf_armor": "Netherite Kurt Zırhı",
+
+  "itemGroup.wolveswitharmor.group": "Zırhlı Kurtlar",
+
+  "wolveswitharmor.tooltip.when_equipped": "Bir kurt üzerinde donatıldığında:",
+  "wolveswitharmor.tooltip.bonus": " +%s Zırh"
+}
