@@ -34,9 +34,9 @@
   ],
   "accessWidener": "wolveswitharmor.accesswidener",
   "depends": {
-    "fabricloader": ">=0.8.2+build.194",
+    "fabricloader": "*",
     "fabric": "*",
-    "minecraft": ">=1.16"
+    "minecraft": ">=1.18"
   },
   "custom": {
     "cardinal-components": [
