@@ -8,6 +8,7 @@ import draylar.staticcontent.StaticContent;
 import draylar.wolveswitharmor.cca.WolfArmorComponent;
 import draylar.wolveswitharmor.data.WolfArmorData;
 import draylar.wolveswitharmor.impl.WolfInteractionHandler;
+import draylar.wolveswitharmor.registry.WWASounds;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.player.UseEntityCallback;
 import net.minecraft.entity.passive.WolfEntity;
@@ -21,6 +22,7 @@ public class WolvesWithArmor implements ModInitializer, EntityComponentInitializ
     public void onInitialize() {
         StaticContent.load(id("wolf_armor"), WolfArmorData.class);
         UseEntityCallback.EVENT.register(new WolfInteractionHandler());
+        WWASounds.initialize();
     }
 
     public static Identifier id(String name) {

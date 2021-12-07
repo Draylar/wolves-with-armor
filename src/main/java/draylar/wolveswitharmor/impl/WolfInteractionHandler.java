@@ -3,12 +3,12 @@ package draylar.wolveswitharmor.impl;
 import draylar.wolveswitharmor.WolvesWithArmor;
 import draylar.wolveswitharmor.cca.WolfArmorComponent;
 import draylar.wolveswitharmor.item.WolfArmorItem;
+import draylar.wolveswitharmor.registry.WWASounds;
 import net.fabricmc.fabric.api.event.player.UseEntityCallback;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.passive.WolfEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.sound.SoundEvents;
 import net.minecraft.stat.Stats;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
@@ -31,7 +31,7 @@ public class WolfInteractionHandler implements UseEntityCallback {
                             wolfComponent.setArmor(player.getMainHandStack());
 
                             // play SFX for equipping wolf with armor
-                            wolf.playSound(SoundEvents.ENTITY_HORSE_ARMOR, 0.5F, 1.0F);
+                            wolf.playSound(WWASounds.WOLF_ARMOR_EQUIP, 0.5F, 1.0F);
 
                             // increase item use statistic - #23
                             player.incrementStat(Stats.USED.getOrCreateStat(player.getMainHandStack().getItem()));

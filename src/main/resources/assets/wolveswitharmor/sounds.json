@@ -1,0 +1,10 @@
+{
+  "entity.wolf.armor": {
+    "subtitle": "subtitles.armor.wolf",
+    "sounds": [
+      {
+        "name": "minecraft:mob/horse/armor"
+      }
+    ]
+  }
+}
