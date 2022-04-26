@@ -12,9 +12,6 @@
   "authors": [
     "Draylar"
   ],
-  "artist": [
-    "MORTADA KILLER 0"
-  ],
   "license": "MIT",
   "icon": "assets/wolveswitharmor/icon.png",
   "environment": "*",
@@ -31,7 +28,7 @@
   ],
   "depends": {
     "fabricloader": "*",
-    "fabric": "*",
+    "fabric": ">=0.39.0",
     "minecraft": ">=1.18"
   }
 }
