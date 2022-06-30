@@ -10,9 +10,7 @@ import net.minecraft.enchantment.Enchantments;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
-import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
@@ -54,12 +52,12 @@ public class WolfArmorItem extends Item {
     public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext context) {
         super.appendTooltip(stack, world, tooltip, context);
 
-        tooltip.add(new LiteralText(""));
-        tooltip.add(new TranslatableText("wolveswitharmor.tooltip.when_equipped").formatted(Formatting.GRAY));
-        tooltip.add(new TranslatableText("wolveswitharmor.tooltip.bonus", getBonus(stack)).formatted(Formatting.BLUE));
+        tooltip.add(Text.of(""));
+        tooltip.add(Text.translatable("wolveswitharmor.tooltip.when_equipped").formatted(Formatting.GRAY));
+        tooltip.add(Text.translatable("wolveswitharmor.tooltip.bonus", getBonus(stack)).formatted(Formatting.BLUE));
 
         if(stack.hasEnchantments()) {
-            tooltip.add(new LiteralText(""));
+            tooltip.add(Text.of(""));
         }
     }
 }
