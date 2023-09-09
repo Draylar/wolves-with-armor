@@ -1,0 +1,13 @@
+{
+  "item.wolveswitharmor.leather_wolf_armor": "Ulverustning av lær",
+  "item.wolveswitharmor.golden_wolf_armor": "Ulverustning av gull",
+  "item.wolveswitharmor.iron_wolf_armor": "Ulverustning av jern",
+  "item.wolveswitharmor.diamond_wolf_armor": "Ulverustning av diamant",
+  "item.wolveswitharmor.netherite_wolf_armor": "Ulverustning av netheritt",
+
+  "itemGroup.wolveswitharmor.group": "Wolves With Armor",
+
+  "wolveswitharmor.tooltip.when_equipped": "Når påkledd en ulv:",
+  "wolveswitharmor.tooltip.bonus": "+%s rustning",
+  "subtitles.armor.wolf": "Ulverustning festes"
+}
